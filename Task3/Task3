@@ -1,0 +1,31 @@
+The directory has 4 pyhton files:
+User, UserService, UserUtil and Testing file.
+
+The directory is made for managing user records, to register, update, delete and operate on users registered.
+
+The first file User contains User class to initialize user's data(id,name,birthday, etc.) and functions to get age of the student and represent info in a readable way.
+To use this file just provide your info into User(user_id:int,name:str,surname:str,email:str,password:str,birthday:datetime).
+For example, User(230121026,'Aiman','Sadiev','aiman.sadiev@alatoo.edu.kg','qwerty',datetime(2006,4,4))
+
+The second file: userservice, is made out of class methods to add, delete,find and update user's data or get the number of students registered.
+First of all we created a users dictionary to store student's id as a key and its User() atributes as a value.
+Then, we made a class method: add_user to add student's id into the dictionary.
+After adding the student into the dictionary, we can find_user(returns student's id if in the dictionary), delete_user(deletes student from the dictionary if its in there) and
+update_user(to update the info of the user).
+Example of using the file:
+Add user from User class: user = User(...), then Userservice.add_user(user). This line defines user argument as a User() atribute and adds it to the dictionary.
+Then, you can find it by using UserService.find_user(user_id:int) which returns the Id of the student.
+You can also delete: UserService.delete_user(user_id), update: UserService.update_user() and get number of students registered: UserService.get_number()
+
+
+The third file is UserUtil file to authentificate user, generate random password and email.
+The file is made out of staticmethods:
+generate_user_id(),generate_password(),is_strong_password(),generate_email(),validate_email() to generate random id with first two digits being the current year,
+to generate password containing at least 8 characters, special letter, upper and lower cases, to check if the requirements for the password are satisfied,
+to generate random email of form name.surname@domain.com in lowercase, to check the appropriation of the form of the email accordingly.
+password = UserUtil.generate_password()
+email = UserUtil.generate_email('Aiman','Sadiev','gmail')
+returns random password like %9c&Jr:Z, and aiman.sadiev@gmail.com
+
+The last one is just a testing file. UnitTest is used to check a few testing runs with expected values. If they dont match with the actual value, the test will be failed.
+It checks all of the three files, testing functions and values they give.
